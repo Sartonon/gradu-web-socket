@@ -22,7 +22,8 @@
     </form>
 
     <script>
-        websocket = new WebSocket("ws://139.162.254.62/ws");
+        // ws://139.162.254.62/ws
+        websocket = new WebSocket("ws://localhost:8080");
         $('form').submit(function() {
             name = $('#name').val() ? $('#name').val() : 'Anonymous';
             $('#name-div').hide();

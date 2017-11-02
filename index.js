@@ -1,8 +1,8 @@
-var express = require('express'),
-    app = express(),
-    http = require('http').Server(app),
-    WebSocketServer = require('ws').Server,
-    wss = new WebSocketServer({
+const express = require('express');
+const app = express();
+const http = require('http').Server(app);
+const WebSocketServer = require('ws').Server;
+const wss = new WebSocketServer({
         port: 8080
     });
  
@@ -20,11 +20,11 @@ wss.broadcast = function broadcast(data) {
  
 wss.on('connection', function(ws) {
     ws.on('message', function(msg) {
-        data = JSON.parse(msg);
-        if (data.message) wss.broadcast('<strong>' + data.name + '</strong>: ' + data.message);
+        const data = JSON.parse(msg);
+        if (data.message) wss.broadcast(JSON.stringify({ name: data.name, message: data.message }));
     });
 });
  
-http.listen(3000, function() {
-    console.log('listening on *:3000');
+http.listen(3001, function() {
+    console.log('listening on port 3000');
 });
