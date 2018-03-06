@@ -34,6 +34,14 @@ wss.on('connection', function(ws) {
       );
     }
   });
+
+  ws.on('error', function (e) {
+    console.log("error!: " + e);
+  });
+
+  ws.on('close', function(e) {
+    console.log("client closed connection!");
+  })
 });
 
 wss.on('error', function() {
