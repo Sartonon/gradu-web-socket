@@ -28,9 +28,9 @@ wss.on('connection', function(ws) {
   ws.on('message', function(msg) {
     const data = JSON.parse(msg);
     if (data.message) {
-      messages = messages.concat({ name: data.name, message: data.message });
+      messages = messages.concat({ name: data.name, message: data.message, color: data.color });
       wss.broadcast(
-        JSON.stringify({ name: data.name, message: data.message })
+        JSON.stringify({ name: data.name, message: data.message, color: data.color })
       );
     }
   });
