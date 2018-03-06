@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/messages', function(req, res) {
+app.get('/api/messages', function(req, res) {
   res.send(messages);
 });
 
@@ -40,6 +40,6 @@ ws.on('error', function() {
   console.log('errored');
 });
 
-http.listen(3001, function() {
+app.listen(3001, function() {
   console.log('listening on port 3001');
 });
