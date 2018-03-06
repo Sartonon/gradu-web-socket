@@ -24,7 +24,3 @@ wss.on('connection', function(ws) {
         if (data.message) wss.broadcast(JSON.stringify({ name: data.name, message: data.message }));
     });
 });
- 
-http.listen(3001, function() {
-    console.log('listening on port 3000');
-});
