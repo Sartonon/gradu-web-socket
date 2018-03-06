@@ -36,7 +36,7 @@ wss.on('connection', function(ws) {
   });
 });
 
-ws.on('error', function() {
+wss.on('error', function() {
   console.log('errored');
 });
 
