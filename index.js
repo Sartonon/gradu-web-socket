@@ -37,5 +37,5 @@ wss.on('connection', function(ws) {
 });
 
 http.listen(3001, function() {
-  console.log('listening on port 3000');
+  console.log('listening on port 3001');
 });
